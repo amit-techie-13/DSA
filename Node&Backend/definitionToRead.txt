@@ -1,0 +1,22 @@
+ event loop is process of checking the call stack and callback queue, if it finds call stack empty then it takes the first process in queue from callback queue and puts it inside the call stack to ececute.
+
+ A callback is a function passed as an argument to another function, which is invoked after the completion of an operation (often asynchronous).
+In Node.js and JavaScript, callbacks allow non-blocking execution by deferring certain logic (like file I/O, timers, or network requests) until the underlying task has finished, without pausing the main thread.
+
+👉 In short: A callback is a way to say “when you’re done, run this function.”
+
+Q4. Synchronous vs Asynchronous callbacks?
+👉 Sync callback: executed immediately (e.g., arr.map(fn)).
+👉 Async callback: executed later (e.g., fs.readFile(file, callback)).
+
+
+Q10. process.nextTick vs setImmediate vs Promises
+👉 Execution priority in Node.js:
+
+process.nextTick() → runs immediately after current operation.
+
+Promise microtasks (.then) → run after nextTick.
+
+setTimeout(fn, 0) → runs in Timers phase.
+
+setImmediate(fn) → runs in Check phase.
